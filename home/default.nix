@@ -6,6 +6,7 @@
     ./i3.nix
     ./neovim.nix
     ./packages.nix
+    ./sway.nix
   ];
 
   home.username = "pancook";
