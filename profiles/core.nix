@@ -17,6 +17,7 @@
   networking.hostName = "nixos"; # Define your hostname.
 
   networking.networkmanager.enable = true;
+
 	programs.nm-applet.enable = true;
 
 	services.blueman.enable = true;
@@ -54,37 +55,7 @@
 		TERMINAL = "kitty";
 	};
 
-	services.xserver = {
-		enable = true;
-
-		desktopManager = {
-			xterm.enable = false;
-		};
-
-		displayManager = {
-			defaultSession = "none+i3";
-		};
-
-		windowManager.i3 = {
-			enable = true;
-			extraPackages = with pkgs; [
-				dmenu
-					i3status
-					i3lock
-					i3blocks
-			];
-		};
-	};
-
-# Enable the Cinnamon Desktop Environment.
-	services.xserver.displayManager.lightdm.enable = true;
-	services.xserver.desktopManager.cinnamon.enable = true;
-
-# Configure keymap in X11
-	services.xserver = {
-		layout = "us";
-		xkbVariant = "";
-	};
+	programs.sway.enable = true;
 
 	fonts.packages = with pkgs; [
 		(nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
