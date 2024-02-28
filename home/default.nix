@@ -3,10 +3,9 @@
   imports = [
     ./alacritty.nix
     ./git.nix
-    ./i3.nix
     ./neovim.nix
     ./packages.nix
-    ./sway.nix
+    ./hyprland.nix
   ];
 
   home.username = "pancook";

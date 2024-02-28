@@ -20,6 +20,8 @@
 
 	programs.nm-applet.enable = true;
 
+	programs.hyprland.enable = true;
+
 	services.blueman.enable = true;
 	hardware.bluetooth.enable = true;
 
@@ -52,10 +54,7 @@
 # Environment
 	environment.variables = {
 		EDITOR = "nvim";
-		TERMINAL = "kitty";
 	};
-
-	programs.sway.enable = true;
 
 	fonts.packages = with pkgs; [
 		(nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
@@ -86,9 +85,6 @@
 # no need to redefine it in your config for now)
 #media-session.enable = true;
 	};
-
-
-	programs.neovim.vimAlias = true;
 
 # List packages installed in system profile. To search, run:
 # $ nix search wget

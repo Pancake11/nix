@@ -5,26 +5,12 @@
 	home.packages = with pkgs; [
 		mako
 		wl-clipboard
-	]
+	];
 
-	wayland.windowManager.sway {
+	wayland.windowManager.sway = {
 		enable = true;
+		config = rec {
+      modifier = "Mod4"; # Super key
+    };
 	};
-
-	services.greetd = {
-		enable = true;
-		settings = {
-			default_session.command = ''
-				${pkgs.greetd.tuigreet}/bin/tuigreet \
-				--time \
-				--asterisks \
-				--user-menu \
-				--cmd sway
-				'';
-		};
-	};
-
-	environment.etc."greetd/environments".text = ''
-		sway
-		'';	
 }
