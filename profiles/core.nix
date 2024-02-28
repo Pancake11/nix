@@ -180,7 +180,6 @@
 
 			rpm
 			networkmanagerapplet
-			obsidian
 			];
 
 # Docker
