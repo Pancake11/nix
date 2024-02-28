@@ -147,6 +147,13 @@
 
 			rpm
 			networkmanagerapplet
+
+			# wayland and hyprland
+			waybar
+			rofi-wayland
+			dunst
+			libnotify
+			swww
 			];
 
 # Docker
