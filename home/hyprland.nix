@@ -1,14 +1,25 @@
 { pkgs, ... }:
+ let
+    startupScript = pkgs.pkgs.writeShellScriptBin "start" ''
+      ${pkgs.waybar}/bin/waybar &
+      ${pkgs.swww}/bin/swww init &
+  
+      sleep 1
+  
+      ${pkgs.swww}/bin/swww img ${./wallpaper/wallpaper.jpg} &
+    '';
+in
 {
   wayland.windowManager.hyprland = {
     enable = true;
     xwayland.enable = true;
     settings = {
       "$mod" = "Mod4";
+      exec-once = ''${startupScript}/bin/start'';
       bind =
         [
           "$mod, F, exec, firefox"
-          "$mod, Q, exec, kitty"
+          "$mod, Q, exec, alacritty"
           "$mod, S, exec, rofi -show drun -show-icons"
           ", Print, exec, grimblast copy area"
         ]
