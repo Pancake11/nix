@@ -11,9 +11,10 @@
     };
     flake-utils.url = "git+https://github.com/numtide/flake-utils?ref=main";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-master, home-manager, flake-utils, nixos-hardware } @ inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-master, home-manager, flake-utils, nixos-hardware, hyprland } @ inputs:
     let
       inherit (nixpkgs) lib;
 

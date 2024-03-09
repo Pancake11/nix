@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 {
 	imports = 
 		[
@@ -154,6 +154,7 @@
 			dunst
 			libnotify
 			swww
+			wdisplays
 			];
 
 # Docker
