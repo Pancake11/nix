@@ -24,12 +24,6 @@
     coc = {
       enable = true;
       settings = {
-        languageserver = {
-          nix = {
-            command = "rnix-lsp";
-            filetypes = [ "nix" ];
-          };
-        };
       };
     };
     extraConfig = ''
@@ -59,7 +53,6 @@
       inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>" '';
     extraPackages = with pkgs; [
       nixfmt
-      rnix-lsp
     ];
   };
 }
