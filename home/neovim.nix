@@ -13,6 +13,7 @@
       coc-pyright
       coc-python
       coc-yaml
+      coc-rust-analyzer
       fzf-vim
       gruvbox
       nvim-lspconfig
