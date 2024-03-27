@@ -64,13 +64,13 @@
       filetype plugin indent on
     '';
     extraPackages = with pkgs; [
+      ccls
       arduino-language-server
       cmake-language-server
       libcxx
       vhdl-ls
       terraform-ls
       nixfmt
-      rnix-lsp
       rust-analyzer
       nodePackages.typescript-language-server
       pyright
