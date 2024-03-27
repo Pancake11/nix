@@ -47,14 +47,6 @@
     withNodeJs = true;
     coc = {
       enable = true;
-      settings = {
-        languageserver = {
-          nix = {
-            command = "rnix-lsp";
-            filetypes = [ "nix" ];
-          };
-        };
-      };
     };
     extraConfig = ''
       colorscheme gruvbox
