@@ -42,7 +42,7 @@
   users.users.pancook = {
     isNormalUser = true;
     description = "Maxim";
-    extraGroups = [ "networkmanager" "wheel" "libvirtd" ];
+    extraGroups = [ "networkmanager" "wheel" ];
     packages = with pkgs; [
       firefox
     ];

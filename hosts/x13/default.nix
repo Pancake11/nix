@@ -11,6 +11,7 @@
       ../../profiles/wayland.nix
       ../../profiles/assistants.nix
       ../../profiles/rust.nix
+      ../../profiles/gistre.nix
     ];
 
   hardware.enableRedistributableFirmware = true;

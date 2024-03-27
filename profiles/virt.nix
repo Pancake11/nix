@@ -9,5 +9,5 @@
     docker-compose
   ];
 
-  users.users.pancook.extraGroups = [ "docker" ];
+  users.users.pancook.extraGroups = [ "docker" "libvirtd" ];
 }
