@@ -3,7 +3,7 @@
   imports = [
     ./alacritty.nix
     ./git.nix
-    ./neovim.nix
+    ./neovim/neovim.nix
     ./packages.nix
     ./hyprland.nix
   ];

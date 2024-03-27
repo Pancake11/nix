@@ -103,6 +103,7 @@
 			unzip
 			neovim
 			arandr
+			chromium
 
 			qemu
 			radare2
