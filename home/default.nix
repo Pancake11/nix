@@ -6,6 +6,7 @@
     ./neovim/neovim.nix
     ./packages.nix
     ./hyprland.nix
+    ./waybar.nix
   ];
 
   home.username = "pancook";

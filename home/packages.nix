@@ -19,7 +19,6 @@ in
     nixpkgs-fmt
     python3
     scrot
-    spotify
     tree
     xsel
     zsh

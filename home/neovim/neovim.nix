@@ -61,6 +61,8 @@
       set backspace=start,eol,indent
       set hlsearch incsearch
 
+      noremap <silent> <Space><Space> :Files<CR>
+
       filetype plugin indent on
     '';
     extraPackages = with pkgs; [
