@@ -6,7 +6,11 @@
 {
   imports =
     [
-			../../profiles/core.nix
+      ../../profiles/core.nix
+      ../../profiles/virt.nix
+      ../../profiles/wayland.nix
+      ../../profiles/assistants.nix
+      ../../profiles/rust.nix
     ];
 
   hardware.enableRedistributableFirmware = true;
@@ -17,14 +21,16 @@
   boot.extraModulePackages = [ ];
 
   fileSystems."/" =
-    { device = "/dev/disk/by-uuid/fc1745d1-79f5-4332-9c6d-de1d598d2e12";
+    {
+      device = "/dev/disk/by-uuid/fc1745d1-79f5-4332-9c6d-de1d598d2e12";
       fsType = "ext4";
     };
 
   boot.initrd.luks.devices."luks-7908f8aa-a7fa-4163-b72d-9d8b036ab727".device = "/dev/disk/by-uuid/7908f8aa-a7fa-4163-b72d-9d8b036ab727";
 
   fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/6521-EC6F";
+    {
+      device = "/dev/disk/by-uuid/6521-EC6F";
       fsType = "vfat";
     };
 
