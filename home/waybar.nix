@@ -17,6 +17,7 @@
         "memory"
         "temperature"
         "clock"
+        "battery"
         "backlight"
         "tray"
       ];
@@ -68,6 +69,16 @@
         format = "{percent}% {icon}";
         format-icons = {
           default = [ "" "" "" "" "" "" "" "" "" ];
+        };
+      };
+      tray = {
+        spacing = 10;
+      };
+      "hyprland/workspaces" = {
+        format = "{name}: {icon}";
+        format-icons = {
+          "1" = "";
+          "2" = "";
         };
       };
     }];
