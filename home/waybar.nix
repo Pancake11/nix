@@ -75,7 +75,7 @@
         spacing = 10;
       };
       "hyprland/workspaces" = {
-        format = "{name}: {icon}";
+        format = "{icon}";
         format-icons = {
           "1" = "";
           "2" = "";
@@ -83,4 +83,7 @@
       };
     }];
   };
+
+
+
 }
