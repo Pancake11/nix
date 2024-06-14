@@ -6,6 +6,7 @@ in
 {
   programs.i3status-rust = {
     enable = true;
+  };
 
   xsession.windowManager.i3 = {
     enable = true;
@@ -15,7 +16,7 @@ in
       keybindings = lib.mkOptionDefault {
         # General
         "${mod}+Return" = "exec alacritty";
-        "${mod}+d" = "exec --no-startup-id ${pkgs.dmenu}/bin/dmenu_run";
+        "${mod}+d" = "exec --no-startup-id rofi -show drun -show-icons";
         "${mod}+l" = "exec sh -c '${pkgs.i3lock}/bin/i3lock'";
         "${mod}+Shift+e" = "exec i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'";
         "${mod}+r" = "restart";
@@ -36,5 +37,4 @@ in
       };
     };
   };
-};
 }

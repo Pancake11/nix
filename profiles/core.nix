@@ -90,6 +90,7 @@
     linux-manual
     man-pages
     man-pages-posix
+    rofi
 
     rpm
     networkmanagerapplet
@@ -101,6 +102,14 @@
     dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
   };
 
+  system.stateVersion = "24.05"; # Did you read the comment?
 
-  system.stateVersion = "23.11"; # Did you read the comment?
+  services.xserver = {
+    enable = true;
+    windowManager.i3.enable = true;
+  };
+
+  services.displayManager = {
+    defaultSession = "none+i3";
+  };
 }

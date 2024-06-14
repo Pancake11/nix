@@ -8,7 +8,7 @@
     [
       ../../profiles/core.nix
       ../../profiles/virt.nix
-      ../../profiles/wayland.nix
+      #../../profiles/wayland.nix
       ../../profiles/assistants.nix
       ../../profiles/rust.nix
       ../../profiles/gistre.nix
