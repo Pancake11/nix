@@ -73,7 +73,7 @@
       libcxx
       vhdl-ls
       terraform-ls
-      nixfmt
+      nixfmt-rfc-style
       rust-analyzer
       nodePackages.typescript-language-server
       pyright
