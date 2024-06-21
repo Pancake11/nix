@@ -34,6 +34,13 @@ in
             format = " $timestamp.datetime(f:'%a %d/%m %R') ";
             interval = 60;
           }
+          {
+            block = "backlight";
+          }
+          {
+            block = "battery";
+            format = " $percentage {$time |}";
+          }
         ];
         settings = {
           theme = {
