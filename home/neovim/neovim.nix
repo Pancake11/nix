@@ -26,6 +26,7 @@
       '';
     }
       cmp-nvim-lsp
+      vim-ccls
       vim-ocaml
       coc-eslint
       fzf-vim

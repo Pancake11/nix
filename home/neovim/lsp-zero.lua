@@ -10,6 +10,7 @@ require('lspconfig').tsserver.setup{}
 require('lspconfig').vhdl_ls.setup{}
 require('lspconfig').rust_analyzer.setup{}
 require('lspconfig').arduino_language_server.setup{}
+require('lspconfig').ccls.setup{}
 
 require'lspconfig'.terraformls.setup{}
 vim.api.nvim_create_autocmd({"BufWritePre"}, {
