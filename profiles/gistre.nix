@@ -10,7 +10,10 @@
     [
       heptagon
       arduino
-      quartus-prime-lite
+      stlink
+      stm32cubemx
+      openocd
+      gcc-arm-embedded
 
       r-studio
     ];

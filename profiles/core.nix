@@ -80,6 +80,7 @@
     file
     unzip
     chromium
+    arandr
 
     qemu
     lazygit
@@ -94,6 +95,7 @@
 
     rpm
     networkmanagerapplet
+    glib
   ];
 
   programs.steam = {
@@ -103,6 +105,8 @@
   };
 
   system.stateVersion = "24.05"; # Did you read the comment?
+
+  programs.dconf.enable = true;
 
   services.xserver = {
     enable = true;
