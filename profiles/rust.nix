@@ -7,5 +7,6 @@
     rustup
     rustc
     rustfmt
+    rust-bindgen
   ];
 }

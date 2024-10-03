@@ -12,6 +12,7 @@
       ../../profiles/assistants.nix
       ../../profiles/rust.nix
       ../../profiles/gistre.nix
+      ../../profiles/power-managment.nix
     ];
 
   hardware.enableRedistributableFirmware = true;

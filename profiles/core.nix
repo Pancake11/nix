@@ -8,10 +8,12 @@
   nix = {
     settings.experimental-features = [ "nix-command" "flakes" ];
     gc.options = "--delete-older-than 10d";
+    settings.auto-optimise-store = true;
   };
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+
 
   time.timeZone = "Europe/Paris";
 
@@ -87,6 +89,7 @@
     wget
     git
     bat
+    flameshot
 
     linux-manual
     man-pages
@@ -96,13 +99,8 @@
     rpm
     networkmanagerapplet
     glib
+    ffmpeg
   ];
-
-  programs.steam = {
-    enable = true;
-    remotePlay.openFirewall = true; # Open ports in the firewall for Steam Remote Play
-    dedicatedServer.openFirewall = true; # Open ports in the firewall for Source Dedicated Server
-  };
 
   system.stateVersion = "24.05"; # Did you read the comment?
 
