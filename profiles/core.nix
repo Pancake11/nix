@@ -48,7 +48,10 @@
     packages = with pkgs; [
       firefox
     ];
+    shell = pkgs.fish;
   };
+
+  users.defaultUserShell = pkgs.fish;
 
   environment.pathsToLink = [ "/libexec" ];
 
@@ -67,6 +70,7 @@
   documentation = {
     enable = true;
     man.enable = true;
+    man.generateCaches = false;
     dev.enable = true;
   };
 
@@ -100,11 +104,16 @@
     networkmanagerapplet
     glib
     ffmpeg
+    krb5
+    sshfs
+    grc
+    fishPlugins.grc
+    flatpak
   ];
 
   system.stateVersion = "24.05"; # Did you read the comment?
 
-  programs.dconf.enable = true;
+  services.gnome.gnome-keyring.enable = true;
 
   services.xserver = {
     enable = true;
@@ -114,4 +123,24 @@
   services.displayManager = {
     defaultSession = "none+i3";
   };
+
+  programs.dconf.enable = true;
+
+  programs.fish = {
+    enable = true;
+    interactiveShellInit = ''
+      set fish_greeting
+    '';
+  };
+
+  programs.bash = {
+    interactiveShellInit = ''
+      if [[ $(${pkgs.procps}/bin/ps --no-header --pid=$PPID --format=comm) != "fish" && -z ''${BASH_EXECUTION_STRING} ]]
+      then
+        shopt -q login_shell && LOGIN_OPTION='--login' || LOGIN_OPTION=""
+        exec ${pkgs.fish}/bin/fish $LOGIN_OPTION
+      fi
+    '';
+  };
+
 }

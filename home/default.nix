@@ -5,12 +5,12 @@
     ./git.nix
     ./neovim/neovim.nix
     ./packages.nix
-    ./i3.nix
+    ./x11/default.nix
   ];
 
   home.username = "pancook";
   home.homeDirectory = lib.mkForce "/home/pancook";
-  home.stateVersion = "23.11";
+  home.stateVersion = "24.05";
 
   programs.home-manager.enable = true;
 }

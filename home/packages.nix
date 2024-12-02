@@ -9,7 +9,6 @@ in
   home.packages = with pkgs; [
     bat
     chrome
-    discord
     feh
     font-awesome
     git
@@ -21,7 +20,9 @@ in
     scrot
     tree
     xsel
-    zsh
-    zsh-powerlevel10k
+    zoxide
+    fish
+    grc
+    bear
   ];
 }

@@ -25,6 +25,7 @@
         })
       '';
     }
+      vim-markdown
       cmp-nvim-lsp
       vim-ccls
       vim-ocaml

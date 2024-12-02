@@ -8,7 +8,7 @@
           x = 10;
           y = 10;
         };
-        decorations = "full";
+        decorations = "none";
         opacity = 1.0;
         startup_mode = "Windowed";
         title = "Alacritty";
@@ -27,7 +27,7 @@
           x = 0;
           y = 0;
         };
-        size = 8.0;
+        size = 11.0;
       };
     };
   };
