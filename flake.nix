@@ -12,9 +12,10 @@
     flake-utils.url = "git+https://github.com/numtide/flake-utils?ref=main";
     nixos-hardware.url = "github:NixOS/nixos-hardware/master";
     hyprland.url = "github:hyprwm/Hyprland";
+    catppuccin.url = "github:catppuccin/nix";
   };
 
-  outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-master, home-manager, flake-utils, nixos-hardware, hyprland } @ inputs:
+  outputs = { self, nixpkgs, nixpkgs-unstable, nixpkgs-master, home-manager, flake-utils, nixos-hardware, hyprland, catppuccin } @ inputs:
     let
       inherit (nixpkgs) lib;
 
@@ -44,6 +45,7 @@
               specialArgs = inputs;
               modules = [
                 ./hosts/${hostName}
+                catppuccin.nixosModules.catppuccin
                 home-manager.nixosModules.home-manager
                 {
                   home-manager.useGlobalPkgs = true;
@@ -52,6 +54,7 @@
                   home-manager.users.pancook = {
                     imports = [
                       ./home
+                      catppuccin.homeManagerModules.catppuccin
                     ];
                   };
                 }

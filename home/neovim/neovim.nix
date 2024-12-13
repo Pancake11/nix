@@ -1,6 +1,7 @@
 { config, pkgs, ... }: {
   programs.neovim = {
     enable = true;
+    catppuccin.enable = true;
     defaultEditor = true;
     vimAlias = true;
     plugins = with pkgs.vimPlugins; [{
@@ -32,7 +33,6 @@
       coc-eslint
       fzf-vim
       luasnip
-      gruvbox
       {
         plugin = lsp-zero-nvim;
         type = "lua";
@@ -52,8 +52,6 @@
       enable = true;
     };
     extraConfig = ''
-      colorscheme gruvbox
-
       set cc=120
       set scrolloff=5
 
@@ -70,11 +68,8 @@
     '';
     extraPackages = with pkgs; [
       ccls
-      arduino-language-server
       cmake-language-server
       libcxx
-      vhdl-ls
-      terraform-ls
       nixfmt-rfc-style
       rust-analyzer
       nodePackages.typescript-language-server
