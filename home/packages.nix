@@ -24,5 +24,6 @@ in
     fish
     grc
     bear
+    fd
   ];
 }

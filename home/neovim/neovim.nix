@@ -1,86 +1,58 @@
-{ config, pkgs, ... }: {
+{ lib, pkgs, ... }:
+let
+  readLuaConfig = plugin:
+    {
+      inherit plugin;
+      type = "lua";
+      config = builtins.readFile ./plugins/${plugin.pname}.lua;
+    };
+in
+{
   programs.neovim = {
     enable = true;
-    catppuccin.enable = true;
+
     defaultEditor = true;
     vimAlias = true;
-    plugins = with pkgs.vimPlugins; [{
-      plugin = conform-nvim;
-      type = "lua";
-      config = ''
-        require("conform").setup({
-          formatters_by_ft = {
-            cpp = { "clang_format" },
-            nix = { "nixpkgs_fmt" },
-            rust = { "rustfmt" },
-            python = { "black" }
-          },
-        })
 
-        require("conform").setup({
-          format_on_save = {
-            -- These options will be passed to conform.format()
-            timeout_ms = 500,
-            lsp_fallback = true,
-          },
-        })
-      '';
-    }
-      vim-markdown
-      cmp-nvim-lsp
-      vim-ccls
-      vim-ocaml
-      coc-eslint
-      fzf-vim
-      luasnip
-      {
-        plugin = lsp-zero-nvim;
-        type = "lua";
-        config = builtins.readFile (./lsp-zero.lua);
-      }
+    plugins = with pkgs.vimPlugins; map readLuaConfig [
+      conform-nvim
+      lualine-nvim
       nvim-cmp
       nvim-lspconfig
-      {
-        plugin = nvim-treesitter.withAllGrammars;
-        type = "lua";
-        config = builtins.readFile (./tree-sitter.lua);
-      }
-      vim-airline
-      vim-polyglot];
-    withNodeJs = true;
-    coc = {
-      enable = true;
-    };
-    extraConfig = ''
-      set cc=120
-      set scrolloff=5
-
-      set mouse-=a
-      set number relativenumber
-      set list listchars=tab:.\ ,trail:.,extends:>,precedes:<,nbsp:_
-      set autoindent expandtab tabstop=4 softtabstop=4 shiftwidth=4
-      set backspace=start,eol,indent
-      set hlsearch incsearch
-
-      noremap <silent> <Space><Space> :Files<CR>
-
-      filetype plugin indent on
-    '';
-    extraPackages = with pkgs; [
-      ccls
-      cmake-language-server
-      libcxx
-      nixfmt-rfc-style
-      rust-analyzer
-      nodePackages.typescript-language-server
-      pyright
-      (python3.withPackages (ps: with ps; [
-        black
-        flake8
-      ]))
+      nvim-tree-lua
+      nvim-treesitter.withAllGrammars
+      telescope-nvim
+    ] ++ [
+      cmp-nvim-lsp
+      cmp-nvim-lsp-signature-help
+      nvim-web-devicons
     ];
-    extraPython3Packages = (ps: with ps; [
-      ps.jedi
-    ]);
+
+    extraLuaConfig = lib.strings.concatLines ([
+      "-- nvim-tree"
+      "vim.g.loaded_netrw = 1"
+      "vim.g.loaded_netrwPlugin = 1"
+    ] ++ (map builtins.readFile [
+      ./options.lua
+      ./mappings.lua
+    ]));
+
+    extraPackages = with pkgs; [
+      # LSP
+      ccls
+      rust-analyzer
+
+      # Formatters
+      black
+      clang-tools
+      nixpkgs-fmt
+      rustfmt
+      stylua
+
+      # Utils
+      ripgrep
+      fd
+    ];
   };
 }
+

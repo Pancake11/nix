@@ -12,7 +12,7 @@
   home.homeDirectory = lib.mkForce "/home/pancook";
   home.stateVersion = "24.05";
 
-  catppuccin.flavor = "frappe";
+  catppuccin.flavor = "mocha";
   catppuccin.enable = true;
 
   programs.home-manager.enable = true;
