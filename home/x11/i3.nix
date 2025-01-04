@@ -5,7 +5,7 @@ let
     ''
       ${pkgs.scrot}/bin/scrot -z /tmp/i3lock.png;
 
-      eval convert /tmp/i3lock.png -quality 4 -level 0%,100%,0.8 -blur 4x4 /tmp/i3lock.png;
+      eval convert /tmp/i3lock.png -quality 4 -level 0%,100%,0.8 -blur 5x5 /tmp/i3lock.png;
 
       ${pkgs.i3lock}/bin/i3lock -i /tmp/i3lock.png;
 

@@ -14,7 +14,6 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
-
   time.timeZone = "Europe/Paris";
 
   networking.hostName = "nixos"; # Define your hostname.
@@ -45,9 +44,6 @@
     isNormalUser = true;
     description = "Maxim";
     extraGroups = [ "networkmanager" "wheel" ];
-    packages = with pkgs; [
-      firefox
-    ];
     shell = pkgs.fish;
   };
 
@@ -87,6 +83,7 @@
     unzip
     chromium
     arandr
+    firefox
 
     qemu
     lazygit
@@ -112,9 +109,11 @@
     openssl
   ];
 
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "24.11"; # Did you read the comment?
 
   services.gnome.gnome-keyring.enable = true;
+
+  programs.steam.enable = true;
 
   services.xserver = {
     enable = true;

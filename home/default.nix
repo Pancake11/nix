@@ -10,7 +10,7 @@
 
   home.username = "pancook";
   home.homeDirectory = lib.mkForce "/home/pancook";
-  home.stateVersion = "24.05";
+  home.stateVersion = "24.11";
 
   catppuccin.flavor = "mocha";
   catppuccin.enable = true;
